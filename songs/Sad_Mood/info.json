@@ -1,4 +1,8 @@
 {
     "title": "Sad Mood",
-    "description":"Songs for Heavy Hearts"
+    "description": "Songs for the Soul",
+    "songs": [
+        "Clean Bandit - Rockabye ft. Sean Paul.mp3",
+        "Delicate - Taylor Swift.mp3"
+    ]
 }
