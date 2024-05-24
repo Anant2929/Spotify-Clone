@@ -1,4 +1,8 @@
 {
-    "title": "Still Rollin",
-    "description":"Shubh"
+    "title": "Shubh",
+    "description": "Best of Shubh",
+    "songs": [
+        "Cheques.mp3",
+        "Elevated.mp3"
+    ]
 }
