@@ -19,21 +19,19 @@ function secondsToMinutesSeconds(seconds) {
 
 async function getSongs(folder) {
     currfolder = folder;
-    let a = await fetch(`http://127.0.0.1:3000/video84%20project%202%20spotify%20clone/${currfolder}/`);
-    let response = await a.text();
+    let response = await fetch(`${folder}/`);
+    let text = await response.text();
     let div = document.createElement("div");
-    div.innerHTML = response;
+    div.innerHTML = text;
     let as = div.getElementsByTagName("a");
     songs = [];
 
     for (let i = 0; i < as.length; i++) {
         const element = as[i];
         if (element.href.endsWith(".mp3")) {
-            songs.push(decodeURIComponent(element.href.split(`/${folder}/`)[1]));
+            songs.push(decodeURIComponent(element.href.split(`${folder}/`)[1]));
         }
     }
-
-
 
     let songUL = document.querySelector(".songList ul");
     songUL.innerHTML = ""; // Clear existing content
@@ -59,12 +57,12 @@ async function getSongs(folder) {
         });
     });
 
-    return songs
+    return songs;
 }
 
 const playMusic = (track, pause = false) => {
     let encodedTrack = encodeURIComponent(track); // Ensure the track name is URL encoded
-    currentSong.src = `http://127.0.0.1:3000/video84%20project%202%20spotify%20clone/${currfolder}/` + encodedTrack;
+    currentSong.src = `${currfolder}/` + encodedTrack;
     if (!pause) {
         currentSong.play();
         document.querySelector("#play").src = "img/pause.svg";
@@ -75,10 +73,10 @@ const playMusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-    let a = await fetch(`http://127.0.0.1:3000/video84%20project%202%20spotify%20clone/songs/`);
-    let response = await a.text();
+    let response = await fetch(`songs/`);
+    let text = await response.text();
     let div = document.createElement("div");
-    div.innerHTML = response;
+    div.innerHTML = text;
     let anchors = div.getElementsByTagName("a");
     let cardcontainer = document.querySelector(".cardcontainer");
 
@@ -88,22 +86,22 @@ async function displayAlbums() {
 
         if (e.href.includes("/songs")) {
             let folder = e.href.split("/").slice(-2)[0];
-            let a = await fetch(`http://127.0.0.1:3000/video84%20project%202%20spotify%20clone/songs/${folder}/info.json`);
-            let response = await a.json();
-            cardcontainer.innerHTML += `<div data-folder="${folder}" class="card">
+            let response = await fetch(`songs/${folder}/info.json`);
+            let json = await response.json();
+            cardcontainer.innerHTML += `<div data-folder="songs/${folder}" class="card">
             <div class="play">
                 <img src="img/play.svg" alt="">
             </div>
-            <img src="http://127.0.0.1:3000/video84%20project%202%20spotify%20clone/songs/${folder}/cover.jpg" alt="">
-            <h2>${response.title}</h2>
-            <p>${response.description}</p>
+            <img src="songs/${folder}/cover.jpg" alt="">
+            <h2>${json.title}</h2>
+            <p>${json.description}</p>
         </div>`;
         }
     }
 
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+            await getSongs(item.currentTarget.dataset.folder);
             if (songs.length > 0) {
                 playMusic(songs[0], true);
             }
@@ -114,7 +112,7 @@ async function displayAlbums() {
 
 async function main() {
     await displayAlbums();
-    await getSongs("songs/Diljit");
+    await getSongs("songs/folder1"); // Change to your default folder
 
     const playButton = document.querySelector("#play");
     playButton.addEventListener("click", () => {
