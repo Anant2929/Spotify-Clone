@@ -1,4 +1,8 @@
 {
     "title": "Chill Mood",
-    "description":"Laid-Back Vibes Only"
+    "description": "Relax and Unwind",
+    "songs": [
+        "Let Me Down Slowly Alec Benjamin.mp3",
+        "Camila Cabello - Havana.mp3"
+    ]
 }
