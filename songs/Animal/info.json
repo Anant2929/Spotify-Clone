@@ -1,4 +1,9 @@
 {
     "title": "Animal",
-    "description":"Manan Bhardwaj, Vishal Mishra"
+    "description": "Manan Bhardwaj, Vishal Mishra",
+    "songs": [
+        "Arjan Vailly.mp3",
+        "Hua Main Animal.mp3",
+        "Pehle Bhi Main.mp3"
+    ]
 }
