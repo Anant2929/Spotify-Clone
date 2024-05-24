@@ -112,7 +112,7 @@ async function displayAlbums() {
 
 async function main() {
     await displayAlbums();
-    await getSongs("songs/folder1"); // Change to your default folder
+    await getSongs("songs/Diljit"); // Change to your default folder
 
     const playButton = document.querySelector("#play");
     playButton.addEventListener("click", () => {
