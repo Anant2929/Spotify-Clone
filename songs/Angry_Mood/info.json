@@ -1,4 +1,8 @@
 {
     "title": "Angry Mood",
-    "description":"Unleash the Beast Within"
+    "description": "Unleash the Beast Within",
+    "songs": [
+        "Ellie_Goulding -Love Me Like You Do.mp3",
+        "One-More-Light.mp3"
+    ]
 }
