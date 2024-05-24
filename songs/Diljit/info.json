@@ -1,4 +1,9 @@
 {
     "title": "Diljit",
-    "description":"2024 - Diljit"
+    "description": "Best of Diljit",
+    "songs": [
+        "Born to Shine.mp3",
+        "Khutti.mp3",
+        "Magic.mp3"
+    ]
 }
