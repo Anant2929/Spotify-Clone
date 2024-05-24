@@ -1,4 +1,8 @@
 {
     "title": "Sleep",
-    "description":"Relax and Unwind"
+    "description": "Songs for Sleep",
+    "songs": [
+        "7 Years.mp3",
+        "Blue-One-Love.mp3"
+    ]
 }
