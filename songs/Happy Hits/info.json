@@ -1,4 +1,8 @@
 {
     "title": "Happy Hits",
-    "description":"Happy and Upbeat Tunes"
+    "description": "Feel Good Music",
+    "songs": [
+        "Hymn for the Weekend.mp3",
+        "Seasons.mp3"
+    ]
 }
